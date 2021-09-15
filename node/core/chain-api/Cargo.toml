@@ -1,0 +1,19 @@
+[package]
+name = "moonrabbit-node-core-chain-api"
+version = "0.1.0"
+authors = ["Moon Rabbit <admin@moonrabbit.com>"]
+edition = "2018"
+
+[dependencies]
+futures = "0.3.12"
+tracing = "0.1.25"
+sp-blockchain = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+moonrabbit-primitives = { path = "../../../primitives" }
+moonrabbit-subsystem = { package = "moonrabbit-node-subsystem", path = "../../subsystem" }
+moonrabbit-node-subsystem-util = { path = "../../subsystem-util" }
+
+[dev-dependencies]
+futures = { version = "0.3.12", features = ["thread-pool"] }
+maplit = "1.0.2"
+moonrabbit-node-subsystem-test-helpers = { path = "../../subsystem-test-helpers" }
+sp-core = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }

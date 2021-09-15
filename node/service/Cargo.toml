@@ -1,0 +1,144 @@
+[package]
+name = "moonrabbit-service"
+version = "0.9.1"
+authors = ["Moon Rabbit <admin@moonrabbit.com>"]
+edition = "2018"
+
+[dependencies]
+# Substrate Client
+sc-authority-discovery = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+babe = { package = "sc-consensus-babe", git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+beefy-primitives = { git = "https://github.com/moonRabbitAZ/grandpa-bridge-gadget", branch = "master" }
+beefy-gadget = { git = "https://github.com/moonRabbitAZ/grandpa-bridge-gadget", branch = "master" }
+grandpa = { package = "sc-finality-grandpa", git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sc-block-builder = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sc-chain-spec = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sc-client-api = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sc-client-db = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sc-consensus-uncles = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sc-consensus = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sc-consensus-slots = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sc-executor = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sc-finality-grandpa-warp-sync = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", optional = true }
+sc-network = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sc-transaction-pool = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sc-keystore = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sc-basic-authorship = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+service = { package = "sc-service", git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+telemetry = { package = "sc-telemetry", git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+
+# Substrate Primitives
+sp-authority-discovery = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+consensus_common = { package = "sp-consensus", git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+grandpa_primitives = { package = "sp-finality-grandpa", git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+inherents = { package = "sp-inherents", git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-api = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-block-builder = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-blockchain = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-core = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-io = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-keystore = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-offchain = { package = "sp-offchain", git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-runtime = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-session = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-storage = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-transaction-pool = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-trie = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-timestamp = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-consensus-babe = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-state-machine = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+
+# Substrate Pallets
+pallet-babe = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+pallet-im-online = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+pallet-staking = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+pallet-transaction-payment-rpc-runtime-api = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+pallet-mmr-primitives = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+
+# Substrate Other
+frame-benchmarking = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+frame-system-rpc-runtime-api = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+prometheus-endpoint = { package = "substrate-prometheus-endpoint", git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+
+# External Crates
+futures = "0.3.12"
+hex-literal = "0.3.1"
+tracing = "0.1.25"
+serde = { version = "1.0.123", features = ["derive"] }
+thiserror = "1.0.23"
+kvdb = "0.9.0"
+kvdb-rocksdb = { version = "0.11.0", optional = true }
+
+# moonrabbit
+moonrabbit-node-core-parachains-inherent = { path = "../core/parachains-inherent" }
+moonrabbit-overseer = { path = "../overseer" }
+moonrabbit-parachain = { path = "../../parachain" }
+moonrabbit-primitives = { path = "../../primitives" }
+moonrabbit-node-primitives = { path = "../primitives" }
+moonrabbit-rpc = { path = "../../rpc" }
+moonrabbit-subsystem = { package = "moonrabbit-node-subsystem", path = "../subsystem" }
+moonrabbit-node-subsystem-util = { path = "../subsystem-util" }
+moonrabbit-runtime-parachains = { path = "../../runtime/parachains" }
+
+# moonrabbit Runtimes
+moonrabbit-runtime = { path = "../../runtime/moonrabbit" }
+moonrabbit-runtime = { path = "../../runtime/moonrabbit" }
+
+# moonrabbit Subsystems
+moonrabbit-availability-bitfield-distribution = { path = "../network/bitfield-distribution", optional = true }
+moonrabbit-availability-distribution = { path = "../network/availability-distribution", optional = true }
+moonrabbit-availability-recovery = { path = "../network/availability-recovery", optional = true }
+moonrabbit-collator-protocol = { path = "../network/collator-protocol", optional = true }
+moonrabbit-gossip-support = { path = "../network/gossip-support", optional = true }
+moonrabbit-network-bridge = { path = "../network/bridge", optional = true }
+moonrabbit-node-collation-generation = { path = "../collation-generation", optional = true }
+moonrabbit-node-core-av-store = { path = "../core/av-store", optional = true }
+moonrabbit-node-core-backing = { path = "../core/backing", optional = true }
+moonrabbit-node-core-bitfield-signing = { path = "../core/bitfield-signing", optional = true }
+moonrabbit-node-core-candidate-selection = { path = "../core/candidate-selection", optional = true }
+moonrabbit-node-core-candidate-validation = { path = "../core/candidate-validation", optional = true }
+moonrabbit-node-core-chain-api = { path = "../core/chain-api", optional = true }
+moonrabbit-node-core-provisioner = { path = "../core/provisioner", optional = true }
+moonrabbit-node-core-runtime-api = { path = "../core/runtime-api", optional = true }
+moonrabbit-statement-distribution = { path = "../network/statement-distribution", optional = true }
+moonrabbit-approval-distribution = { path = "../network/approval-distribution", optional = true }
+moonrabbit-node-core-approval-voting = { path = "../core/approval-voting", optional = true }
+
+[dev-dependencies]
+moonrabbit-test-client = { path = "../test/client" }
+env_logger = "0.8.2"
+
+[features]
+default = ["db", "full-node"]
+db = ["service/db"]
+full-node = [
+	"moonrabbit-node-core-av-store",
+	"moonrabbit-node-core-approval-voting",
+	"moonrabbit-availability-bitfield-distribution",
+	"moonrabbit-availability-distribution",
+	"moonrabbit-availability-recovery",
+	"moonrabbit-collator-protocol",
+	"moonrabbit-gossip-support",
+	"moonrabbit-network-bridge",
+	"moonrabbit-node-collation-generation",
+	"moonrabbit-node-core-backing",
+	"moonrabbit-node-core-bitfield-signing",
+	"moonrabbit-node-core-candidate-selection",
+	"moonrabbit-node-core-candidate-validation",
+	"moonrabbit-node-core-chain-api",
+	"moonrabbit-node-core-provisioner",
+	"moonrabbit-node-core-runtime-api",
+	"moonrabbit-statement-distribution",
+	"moonrabbit-approval-distribution",
+	"sc-finality-grandpa-warp-sync",
+	"kvdb-rocksdb"
+]
+
+runtime-benchmarks = [
+	"moonrabbit-runtime/runtime-benchmarks",
+	"moonrabbit-runtime/runtime-benchmarks"
+]
+try-runtime = [
+	"moonrabbit-runtime/try-runtime",
+	"moonrabbit-runtime/try-runtime",
+]

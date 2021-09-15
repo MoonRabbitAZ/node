@@ -1,0 +1,20 @@
+[package]
+name = "moonrabbit-node-core-provisioner"
+version = "0.1.0"
+authors = ["Moon Rabbit <admin@moonrabbit.com>"]
+edition = "2018"
+
+[dependencies]
+bitvec = { version = "0.20.1", default-features = false, features = ["alloc"] }
+futures = "0.3.12"
+tracing = "0.1.25"
+thiserror = "1.0.23"
+moonrabbit-primitives = { path = "../../../primitives" }
+moonrabbit-node-subsystem = { path = "../../subsystem" }
+moonrabbit-node-subsystem-util = { path = "../../subsystem-util" }
+futures-timer = "3.0.2"
+
+[dev-dependencies]
+sp-application-crypto = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-keystore = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+moonrabbit-node-subsystem-test-helpers = { path = "../../subsystem-test-helpers" }

@@ -1,0 +1,17 @@
+[package]
+name = "moonrabbit-gossip-support"
+version = "0.1.0"
+authors = ["Moon Rabbit <admin@moonrabbit.com>"]
+edition = "2018"
+
+[dependencies]
+sp-application-crypto = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-keystore = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+
+moonrabbit-node-network-protocol = { path = "../protocol" }
+moonrabbit-node-subsystem = { path = "../../subsystem" }
+moonrabbit-node-subsystem-util = { path = "../../subsystem-util" }
+moonrabbit-primitives = { path = "../../../primitives" }
+
+futures = "0.3.8"
+tracing = "0.1.25"

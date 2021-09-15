@@ -1,0 +1,27 @@
+[package]
+name = "moonrabbit-approval-distribution"
+version = "0.1.0"
+authors = ["Moon Rabbit <admin@moonrabbit.com>"]
+edition = "2018"
+
+[dependencies]
+moonrabbit-node-primitives = { path = "../../primitives" }
+moonrabbit-node-network-protocol = { path = "../protocol" }
+moonrabbit-node-subsystem = { path = "../../subsystem" }
+moonrabbit-node-subsystem-util = { path = "../../subsystem-util" }
+moonrabbit-primitives = { path = "../../../primitives" }
+
+futures = "0.3.8"
+tracing = "0.1.25"
+
+[dev-dependencies]
+sp-core = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", features = ["std"] }
+
+moonrabbit-node-subsystem-util = { path = "../../subsystem-util" }
+moonrabbit-node-subsystem-test-helpers = { path = "../../subsystem-test-helpers" }
+
+assert_matches = "1.4.0"
+schnorrkel = { version = "0.9.1", default-features = false }
+rand_core = "0.5.1" # should match schnorrkel
+env_logger = "0.8.2"
+log = "0.4.13"

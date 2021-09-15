@@ -1,0 +1,15 @@
+version: '3'
+services:
+  moonrabbit:
+    build:
+      context: .
+    ports:
+      - "127.0.0.1:30333:30333/tcp"
+      - "127.0.0.1:9933:9933/tcp"
+    image: chevdor/moonrabbit:latest
+    volumes:
+      - "moonrabbit-data:/data"
+    command: moonrabbit
+
+volumes:
+  moonrabbit-data:

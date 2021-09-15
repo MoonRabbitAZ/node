@@ -1,0 +1,24 @@
+[package]
+name = "test-jurisdictions"
+version = "0.9.1"
+authors = ["Moon Rabbit <admin@moonrabbit.com>"]
+description = "Integration tests using the test-jurisdictions"
+edition = "2018"
+
+[dependencies]
+tiny-keccak = "2.0.2"
+moonrabbit-scale-codec = { version = "2.0.0", default-features = false, features = ["derive"] }
+
+parachain = { package = "moonrabbit-jurisdiction", path = ".." }
+adder = { package = "test-parachain-adder", path = "adder" }
+halt = { package = "test-parachain-halt", path = "halt" }
+
+[dev-dependencies]
+sp-core = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+
+[features]
+default = [ "std" ]
+std = [
+	"adder/std",
+	"halt/std",
+]

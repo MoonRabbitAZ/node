@@ -1,0 +1,22 @@
+[package]
+name = "moonrabbit-core-primitives"
+version = "0.9.1"
+authors = ["Moon Rabbit <admin@moonrabbit.com>"]
+edition = "2018"
+
+[dependencies]
+sp-core = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+sp-std = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+sp-runtime = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+moonrabbit-scale-codec = { version = "2.0.0", default-features = false, features = [ "derive" ] }
+moonrabbit-util-mem = { version = "0.9.0", default-features = false, optional = true }
+
+[features]
+default = [ "std" ]
+std = [
+	"sp-core/std",
+	"sp-runtime/std",
+	"sp-std/std",
+	"moonrabbit-scale-codec/std",
+	"moonrabbit-util-mem",
+]

@@ -1,0 +1,58 @@
+[package]
+name = "moonrabbit-primitives"
+version = "0.9.1"
+authors = ["Moon Rabbit <admin@moonrabbit.com>"]
+edition = "2018"
+
+[dependencies]
+serde = { version = "1.0.123", optional = true, features = ["derive"] }
+moonrabbit-scale-codec = { version = "2.0.0", default-features = false, features = ["bit-vec", "derive"] }
+primitives = { package = "sp-core", git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+inherents = { package = "sp-inherents", git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+application-crypto = { package = "sp-application-crypto", git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+sp-keystore = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", optional = true }
+sp-api = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+sp-version = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+sp-std = { package = "sp-std", git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+sp-io = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+sp-staking = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+sp-arithmetic = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+sp-authority-discovery = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+runtime_primitives = { package = "sp-runtime", git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+moonrabbit-parachain = { path = "../parachain", default-features = false }
+moonrabbit-core-primitives = { path = "../core-primitives", default-features = false }
+trie = { package = "sp-trie", git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+bitvec = { version = "0.20.1", default-features = false, features = ["alloc"] }
+frame-system = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+hex-literal = "0.3.1"
+moonrabbit-util-mem = { version = "0.9.0", default-features = false, optional = true }
+thiserror = "1.0.23"
+
+[dev-dependencies]
+sp-serializer = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+pretty_assertions = "0.6.1"
+
+[features]
+default = ["std"]
+std = [
+	"application-crypto/std",
+	"moonrabbit-scale-codec/std",
+	"primitives/std",
+	"inherents/std",
+	"trie/std",
+	"sp-api/std",
+	"sp-authority-discovery/std",
+	"sp-keystore",
+	"sp-std/std",
+	"sp-io/std",
+	"sp-version/std",
+	"sp-staking/std",
+	"sp-arithmetic/std",
+	"runtime_primitives/std",
+	"serde",
+	"moonrabbit-util-mem",
+	"moonrabbit-parachain/std",
+	"moonrabbit-core-primitives/std",
+	"bitvec/std",
+	"frame-system/std",
+]

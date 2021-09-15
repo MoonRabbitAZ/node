@@ -1,0 +1,21 @@
+[package]
+name = "moonrabbit-node-collation-generation"
+version = "0.1.0"
+authors = ["Moon Rabbit <admin@moonrabbit.com>"]
+edition = "2018"
+
+[dependencies]
+futures = "0.3.12"
+tracing = "0.1.25"
+moonrabbit-erasure-coding = { path = "../../erasure-coding" }
+moonrabbit-node-primitives = { path = "../primitives" }
+moonrabbit-node-subsystem = { path = "../subsystem" }
+moonrabbit-node-subsystem-util = { path = "../subsystem-util" }
+moonrabbit-primitives = { path = "../../primitives" }
+sp-core = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-maybe-compressed-blob  = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+thiserror = "1.0.23"
+moonrabbit-scale-codec = { version = "2.0.0", default-features = false, features = ["bit-vec", "derive"] }
+
+[dev-dependencies]
+moonrabbit-node-subsystem-test-helpers = { path = "../subsystem-test-helpers" }

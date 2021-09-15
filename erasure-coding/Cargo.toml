@@ -1,0 +1,14 @@
+[package]
+name = "moonrabbit-erasure-coding"
+version = "0.9.1"
+authors = ["Moon Rabbit <admin@moonrabbit.com>"]
+edition = "2018"
+
+[dependencies]
+moonrabbit-primitives = { path = "../primitives" }
+moonrabbit-node-primitives = { package = "moonrabbit-node-primitives", path = "../node/primitives" }
+novelpoly = { package = "reed-solomon-novelpoly", version = "1.0.0" }
+moonrabbit-scale-codec = { version = "2.0.0", default-features = false, features = ["std", "derive"] }
+sp-core = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+trie = { package = "sp-trie", git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+thiserror = "1.0.23"

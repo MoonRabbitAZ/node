@@ -1,0 +1,26 @@
+[package]
+name = "moonrabbit-overseer"
+version = "0.1.0"
+authors = ["Moon Rabbit <admin@moonrabbit.com>"]
+edition = "2018"
+
+[dependencies]
+async-trait = "0.1.42"
+client = { package = "sc-client-api", git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-api = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+futures = "0.3.12"
+futures-timer = "3.0.2"
+moonrabbit-node-primitives = { package = "moonrabbit-node-primitives", path = "../primitives" }
+moonrabbit-node-subsystem-util = { path = "../subsystem-util" }
+moonrabbit-procmacro-overseer-subsystems-gen = { path = "./subsystems-gen" }
+moonrabbit-primitives = { path = "../../primitives" }
+moonrabbit-subsystem = { package = "moonrabbit-node-subsystem", path = "../subsystem" }
+tracing = "0.1.25"
+
+[dev-dependencies]
+sp-core = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+moonrabbit-node-network-protocol = { path = "../network/protocol" }
+futures = { version = "0.3.12", features = ["thread-pool"] }
+femme = "2.1.1"
+kv-log-macro = "1.0.7"
+assert_matches = "1.4.0"

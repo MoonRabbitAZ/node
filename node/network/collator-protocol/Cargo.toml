@@ -1,0 +1,32 @@
+[package]
+name = "moonrabbit-collator-protocol"
+version = "0.1.0"
+authors = ["Moon Rabbit <admin@moonrabbit.com>"]
+edition = "2018"
+
+[dependencies]
+always-assert = "0.1.2"
+futures = "0.3.12"
+futures-timer = "3"
+thiserror = "1.0.23"
+tracing = "0.1.25"
+
+sp-core = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-runtime = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+sp-keystore = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+
+moonrabbit-primitives = { path = "../../../primitives" }
+moonrabbit-node-network-protocol = { path = "../../network/protocol" }
+moonrabbit-node-primitives = { path = "../../primitives" }
+moonrabbit-node-subsystem-util = { path = "../../subsystem-util" }
+moonrabbit-subsystem = { package = "moonrabbit-node-subsystem", path = "../../subsystem" }
+
+[dev-dependencies]
+log = "0.4.13"
+env_logger = "0.8.2"
+assert_matches = "1.4.0"
+
+sp-core = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", features = ["std"] }
+sp-keyring = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+
+moonrabbit-subsystem-testhelpers = { package = "moonrabbit-node-subsystem-test-helpers", path = "../../subsystem-test-helpers" }

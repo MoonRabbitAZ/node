@@ -1,0 +1,26 @@
+[package]
+name = "moonrabbit-node-subsystem-test-helpers"
+version = "0.1.0"
+authors = ["Moon Rabbit <admin@moonrabbit.com>"]
+edition = "2018"
+description = "Subsystem traits and message definitions"
+
+[dependencies]
+async-trait = "0.1.42"
+futures = "0.3.12"
+futures-timer = "3.0.2"
+tracing = "0.1.25"
+moonrabbit-scale-codec = { version = "2.0.0", default-features = false, features = ["derive"] }
+parking_lot = "0.11.1"
+pin-project = "1.0.4"
+moonrabbit-node-primitives = { path = "../primitives" }
+moonrabbit-node-subsystem = { path = "../subsystem" }
+moonrabbit-node-subsystem-util = { path = "../subsystem-util" }
+moonrabbit-primitives = { path = "../../primitives" }
+moonrabbit-statement-table = { path = "../../statement-table" }
+sc-network = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+smallvec = "1.6.1"
+sp-core = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master" }
+
+[dev-dependencies]
+moonrabbit-overseer = { path = "../overseer" }

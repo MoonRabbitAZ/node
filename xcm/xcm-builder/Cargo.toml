@@ -1,0 +1,38 @@
+[package]
+authors = ["Moon Rabbit <admin@moonrabbit.com>"]
+edition = "2018"
+name = "xcm-builder"
+description = "Tools & types for building with XCM and its executor."
+version = "0.9.1"
+
+[dependencies]
+impl-trait-for-tuples = "0.2.0"
+moonrabbit-scale-codec = { version = "2.0.0", default-features = false, features = ["derive"] }
+xcm = { path = "..", default-features = false }
+xcm-executor = { path = "../xcm-executor", default-features = false }
+sp-std = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+sp-arithmetic = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+sp-io = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+sp-runtime = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+frame-support = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+frame-system = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+pallet-transaction-payment = { git = "https://github.com/moonRabbitAZ/substrate", branch = "master", default-features = false }
+
+# moonrabbit dependencies
+moonrabbit-parachain = { path = "../../parachain", default-features = false }
+
+[features]
+default = ["std"]
+runtime-benchmarks = []
+std = [
+	"moonrabbit-scale-codec/std",
+	"xcm/std",
+	"xcm-executor/std",
+	"sp-std/std",
+	"sp-arithmetic/std",
+	"sp-io/std",
+	"sp-runtime/std",
+	"frame-support/std",
+	"moonrabbit-parachain/std",
+	"pallet-transaction-payment/std",
+]

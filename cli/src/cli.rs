@@ -1,0 +1,108 @@
+
+
+//! moonrabbit CLI library.
+
+use structopt::StructOpt;
+
+#[allow(missing_docs)]
+#[derive(Debug, StructOpt)]
+pub enum Subcommand {
+	/// Build a chain specification.
+	BuildSpec(sc_cli::BuildSpecCmd),
+
+	/// Validate blocks.
+	CheckBlock(sc_cli::CheckBlockCmd),
+
+	/// Export blocks.
+	ExportBlocks(sc_cli::ExportBlocksCmd),
+
+	/// Export the state of a given block into a chain spec.
+	ExportState(sc_cli::ExportStateCmd),
+
+	/// Import blocks.
+	ImportBlocks(sc_cli::ImportBlocksCmd),
+
+	/// Remove the whole chain.
+	PurgeChain(sc_cli::PurgeChainCmd),
+
+	/// Revert the chain to a previous state.
+	Revert(sc_cli::RevertCmd),
+
+	#[allow(missing_docs)]
+	#[structopt(name = "prepare-worker", setting = structopt::clap::AppSettings::Hidden)]
+	PvfPrepareWorker(ValidationWorkerCommand),
+
+	#[allow(missing_docs)]
+	#[structopt(name = "execute-worker", setting = structopt::clap::AppSettings::Hidden)]
+	PvfExecuteWorker(ValidationWorkerCommand),
+
+	/// The custom benchmark subcommand benchmarking runtime pallets.
+	#[structopt(
+		name = "benchmark",
+		about = "Benchmark runtime pallets."
+	)]
+	Benchmark(frame_benchmarking_cli::BenchmarkCmd),
+
+	/// Testing subcommand for runtime testing and trying.
+	#[cfg(feature = "try-runtime")]
+	TryRuntime(try_runtime_cli::TryRuntimeCmd),
+
+	/// Key management cli utilities
+	Key(sc_cli::KeySubcommand),
+}
+
+#[allow(missing_docs)]
+#[derive(Debug, StructOpt)]
+pub struct ValidationWorkerCommand {
+	/// The path to the validation host's socket.
+	pub socket_path: String,
+}
+
+#[allow(missing_docs)]
+#[derive(Debug, StructOpt)]
+pub struct RunCmd {
+	#[allow(missing_docs)]
+	#[structopt(flatten)]
+	pub base: sc_cli::RunCmd,
+
+	/// Force using Kusama native runtime.
+	#[structopt(long = "force-kusama")]
+	pub force_kusama: bool,
+
+	/// Force using Westend native runtime.
+	#[structopt(long = "force-westend")]
+	pub force_westend: bool,
+
+	/// Force using Rococo native runtime.
+	#[structopt(long = "force-rococo")]
+	pub force_rococo: bool,
+
+	/// Setup a GRANDPA scheduled voting pause.
+	///
+	/// This parameter takes two values, namely a block number and a delay (in
+	/// blocks). After the given block number is finalized the GRANDPA voter
+	/// will temporarily stop voting for new blocks until the given delay has
+	/// elapsed (i.e. until a block at height `pause_block + delay` is imported).
+	#[structopt(long = "grandpa-pause", number_of_values(2))]
+	pub grandpa_pause: Vec<u32>,
+
+	/// Disable BEEFY gadget.
+	#[structopt(long)]
+	pub no_beefy: bool,
+
+	/// Add the destination address to the jaeger agent.
+	///
+	/// Must be valid socket address, of format `IP:Port`
+	/// commonly `127.0.0.1:6831`.
+	#[structopt(long)]
+	pub jaeger_agent: Option<std::net::SocketAddr>,
+}
+
+#[allow(missing_docs)]
+#[derive(Debug, StructOpt)]
+pub struct Cli {
+	#[structopt(subcommand)]
+	pub subcommand: Option<Subcommand>,
+	#[structopt(flatten)]
+	pub run: RunCmd,
+}

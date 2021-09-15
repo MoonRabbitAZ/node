@@ -1,0 +1,30 @@
+{
+  "name": "Moonrabbit",
+  "id": "moonrabbit",
+  "chainType": "Live",
+  "bootNodes": [
+    "/dns/p2p.0.moonrabbit.network/tcp/30333/p2p/12D3KooWHsvEicXjWWraktbZ4MQBizuyADQtuEGr3NbDvtm5rFA5"
+  ],
+  "telemetryEndpoints": [
+    [
+      "wss://telemetry.moonrabbit.io/submit/",
+      0
+    ]
+  ],
+  "protocolId": "dot",
+  "properties": {
+    "ss58Format": 0,
+    "tokenDecimals": 10,
+    "tokenSymbol": "AAA"
+  },
+  "forkBlocks": null,
+  "badBlocks": null,
+  "consensusEngine": null,
+  "genesis": {
+    "raw": {
+      "top": {
+      },
+      "childrenDefault": {}
+    }
+  }
+}
